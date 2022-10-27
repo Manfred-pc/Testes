@@ -261,7 +261,6 @@ public class TelaPartida extends JFrame {
   
   
                          }
-
 						@Override
 						public void mouseExited(MouseEvent arg0) {
 							// TODO Auto-generated method stub
@@ -355,44 +354,45 @@ public class TelaPartida extends JFrame {
 	    			  
 	                  cont++; 
 	                  imaPrintf.setBounds(1235,740-100,170,300); 
-	                  if (cont >=2){ 
+	                  if (cont ==1){ 
 	                	  
 	                     imaPrintf.setBounds(1235,740,170,300); 
 	                  }
-	    		  } else if(arg0.getSource() == imaScanf){
+	    		  } 
+	    		  if(arg0.getSource() == imaScanf){
 	    			  
 	    			  cont++; 
-	                  imaScanf.setBounds(1235,740-100,170,300); 
-	                  if (cont >=2){ 
+	                  imaScanf.setBounds(1055,740-100,170,300); 
+	                  if (cont ==2){ 
 	                    	  
-	                     imaScanf.setBounds(1235,740,170,300); 
+	                     imaScanf.setBounds(1055,740,170,300); 
 	                  } 
-	    		  } else if(arg0.getSource() == imaInclude){
+	    		  }  if(arg0.getSource() == imaInclude){
 	    			  
 	    			  cont++; 
-	                  imaScanf.setBounds(1235,740-100,170,300); 
+	                  imaInclude.setBounds(515,740-100,170,300); 
 	
-	                      if (cont >=2){ 
+	                      if (cont ==2){ 
 	                    	  
-	                         imaScanf.setBounds(1235,740,170,300); 
+	                         imaInclude.setBounds(515,740,170,300); 
 	    		          }
 	    		  } else if (arg0.getSource() == imaIf){
 	    			  
 	    			  cont++; 
-	                  imaIf.setBounds(1235,740-100,170,300); 
+	                  imaIf.setBounds(695,740-100,170,300); 
 	
 	                      if (cont >=2){ 
 	                    	  
-	                          imaIf.setBounds(1235,740,170,300); 
+	                          imaIf.setBounds(695,740,170,300); 
 	                      } 
-	    		  } else if(arg0.getSource() == imaFor) {
+	    		  } if(arg0.getSource() == imaFor) {
 	    			  
 	    			  cont++; 
-	                  imaFor.setBounds(1235,740-100,170,300); 
+	                  imaFor.setBounds(875,740-100,170,300); 
 	
-	                      if (cont >=2){ 
+	                      if (cont ==2){ 
 	                    	  
-	                         imaFor.setBounds(1235,740,170,300); 
+	                         imaFor.setBounds(875,740,170,300); 
 	                      } 	  
 	    		  }                         
 	      } 
@@ -400,71 +400,18 @@ public class TelaPartida extends JFrame {
 	      public void mouseEntered(MouseEvent arg0) { 
 	              // TODO Auto-generated method stub 
 	    	  
-	    	  if(arg0.getSource() == imaFor) {
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaPrintf) {
-	    		  
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaInclude) {
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaIf) {
-	    		      		  
-	    	  } else if(arg0.getSource() == imaScanf) {
-	    		  
-	    	  }
-		
 	      } 
-	
 	      public void mouseExited(MouseEvent arg0) { 
 	              // TODO Auto-generated method stub
-	    	  
-	if(arg0.getSource() == imaFor) {
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaPrintf) {
-	    		  
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaInclude) {
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaIf) {
-	    		      		  
-	    	  } else if(arg0.getSource() == imaScanf) {
-	    		  
-	    	  }
-	
 	      } 
 	
 	      public void mousePressed(MouseEvent arg0) { 
 	              
 	              
-	              if(arg0.getSource() == imaFor) {
-	            	  
-	            	  mouseP = true;
-	        		  
-	        		  
-	        	  } else if(arg0.getSource() == imaPrintf) {
-	        		  
+	             
 	        		  mouseP = true;
 	        		  
-	        	  } else if(arg0.getSource() == imaInclude) {
-	        		  
-	        		  mouseP = true;
-	        		  
-	        		  
-	        	  } else if(arg0.getSource() == imaIf) {
-	        		  
-	        		  mouseP = true;
-	        		      		  
-	        	  } else if(arg0.getSource() == imaScanf) {
-	        		  
-	        		  mouseP = true;
-	        		  
-	        	  }
+	        	  
 	             
 	      } 
 	
@@ -475,20 +422,26 @@ public class TelaPartida extends JFrame {
 	    		  
 	    		  
 	    	  } else if(arg0.getSource() == imaPrintf) {
-	    		 	  
+	    		 	  imaPrintf.setBounds(1000,800,170,300);
 	    		  
-	    	  } else if(arg0.getSource() == imaInclude) {
+	    	  }  if(arg0.getSource() == imaInclude) {
 	    		  
 	    		  
-	    	  } else if(arg0.getSource() == imaIf) {
+	    	  }  if(arg0.getSource() == imaIf) {
 	    		      		  
-	    	  } else if(arg0.getSource() == imaScanf) {
+	    	  } if(arg0.getSource() == imaScanf) {
 	    		  
 	    	  }
-	
-	     }  
+	 	
+	    	  	
+	     }
+	      
+	      
 	    	  
-      }  
+      }
+       
+    	 
+    	  
   }
   
       public class Mover extends Thread{ 
@@ -500,17 +453,22 @@ public class TelaPartida extends JFrame {
                               if(mouseP){ 
                                       Point ponto = getMousePosition(); 
                                              if(cont >= 2){ 
+                                            	 
+                                            	
                                                      int x = 1235; 
                                                      int y = 740; 
+                                                     
                                                      imaPrintf.setBounds(ponto.x-85,ponto.y-150,170,300); 
                                              } 
   
                               } 
                       } 
               } 
-      } 
+      }
       
+
       
+     
      public static void main (String[]args){ 
         TelaPartida ex = new TelaPartida(); 
         ex.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
