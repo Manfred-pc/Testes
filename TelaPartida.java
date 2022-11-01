@@ -1,22 +1,23 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
-//falta os imports e estÃ¡ incompleto por enquanto
+//falta os imports e estÃƒÂ¡ incompleto por enquanto
 
 public class TelaPartida extends JFrame { 
   
@@ -29,30 +30,55 @@ public class TelaPartida extends JFrame {
      Color azulc = new Color(65,105,225); 
      Color ouro = new Color(238,201,0); 
      Font fonte1 = new Font("Arial", Font.BOLD, 24); 
+     private JMenuBar  barra;
+     private JMenu opcao;
+     private JMenuItem config, voltar;
      int cont=0; 
-     boolean mouseP = false; 
      
-     Border borda = BorderFactory.createLineBorder(Color.WHITE, 4);
+     boolean mouseP = false; 
   
-      public  TelaPartida(){ 
+      public TelaPartida(){ 
     	  
-    	      Cartas carta = new Cartas();
+    	  
+    	  
+    	  barra = new JMenuBar();  
+          setJMenuBar(barra);  
+          opcao = new JMenu("Opções");  
+                    
+          config = new JMenuItem("Configurações");  
+          voltar = new JMenuItem("Voltar");  
+          
+          voltar.addActionListener(  
+         		 new ActionListener(){  
+         			 public void actionPerformed(ActionEvent e) { 
+         			
+                         new Menu();
+                         dispose();
+        
+         				
+         			 }       
+         		 });                 
+          
+          barra.add(opcao);  
+          barra.setBackground(ouro);  
+          opcao.add(config);  
+          opcao.add(voltar);          
   
               painel = new JPanel(); 
-              painel.setLayout(new BorderLayout()); 
+              painel.setLayout(null); 
               painel.setBackground(azulc); 
-              painel.setBorder(borda);
   
               perg = new JLabel("Desejo mostrar uma mensagem na tela, qual comando devo usar?"); 
               perg.setFont(fonte1); 
               perg.setForeground(Color.WHITE); 
-              painel.add(perg, BorderLayout.CENTER);
-           //   painel.add(perg); 
-  
+              painel.add(perg); 
+              int x = 0, y = 0;
               imFor = new ImageIcon(getClass().getResource("for.png")); 
               imaFor = new JLabel(imFor); 
-              imaFor.addMouseListener(carta.po);
-       /*   imaFor.addMouseListener(new MouseListener(){ 
+          imaFor.addMouseListener(new MouseListener(){ 
+        	  
+              int x  = 875;
+              int y = 740;
   
                          public void mouseClicked(MouseEvent arg0) { 
                                  cont++; 
@@ -61,7 +87,6 @@ public class TelaPartida extends JFrame {
                                      if (cont >=2){ 
                                    imaFor.setBounds(1235,740,170,300); 
                               } 
-  
                          } 
   
                          @Override 
@@ -90,14 +115,13 @@ public class TelaPartida extends JFrame {
                          } 
   
   
-              }); */
+              }); 
   
               imif = new ImageIcon(getClass().getResource("if.png")); 
               imaIf = new JLabel(imif); 
-              imaIf.addMouseListener(carta.po);
-              /* imaIf.addMouseListener(new MouseListener(){ 
+          imaIf.addMouseListener(new MouseListener(){ 
   
-        	          public void mouseClicked(MouseEvent arg0) { 
+                         public void mouseClicked(MouseEvent arg0) { 
                                  cont++; 
                                  imaIf.setBounds(1235,740-100,170,300); 
   
@@ -130,14 +154,18 @@ public class TelaPartida extends JFrame {
                                  mouseP = false; 
                                  imaIf.setBounds(875,540,170,300); 
                                  } 
- });  */
+ }); 
   
               imif = new ImageIcon(getClass().getResource("if.png")); 
               imaIf = new JLabel(imif); 
-              imaIf.addMouseListener(carta.po);
-              /*imaIf.addMouseListener(new MouseListener(){ 
+          imaIf.addMouseListener(new MouseListener(){ 
+        	  
+        	  
+        	  
+              int x  = 695;
+              int y = 740;
   
-        	  /*  public void mouseClicked(MouseEvent arg0) { 
+                         public void mouseClicked(MouseEvent arg0) { 
                                  cont++; 
                                  imaIf.setBounds(1235,740-100,170,300); 
   
@@ -174,14 +202,16 @@ public class TelaPartida extends JFrame {
                          } 
   
   
-              }); */
+              }); 
   
               include = new ImageIcon(getClass().getResource("include.png")); 
               imaInclude = new JLabel(include); 
-              imaInclude.addMouseListener(carta.po);
-              /*      imaInclude.addMouseListener(new MouseListener(){ 
+          imaInclude.addMouseListener(new MouseListener(){ 
+        	  
+              int x  = 515;
+              int y = 740;
   
-                      /*   public void mouseClicked(MouseEvent arg0) { 
+                         public void mouseClicked(MouseEvent arg0) { 
                                  cont++; 
                                  imaInclude.setBounds(1235,740-100,170,300); 
   
@@ -218,14 +248,16 @@ public class TelaPartida extends JFrame {
                          } 
   
   
-              }); */
+              }); 
   
               scanf = new ImageIcon(getClass().getResource("scanf.png")); 
               imaScanf = new JLabel(scanf); 
-              imaScanf.addMouseListener(carta.po);
-              /*  imaScanf.addMouseListener(new MouseListener(){ 
-  
-                    /*     public void mouseClicked(MouseEvent arg0) { 
+          imaScanf.addMouseListener(new MouseListener(){
+        	  
+                         int x  = 1055;
+                         int y = 740;
+                         
+                         public void mouseClicked(MouseEvent arg0) { 
                                  cont++; 
                                  imaScanf.setBounds(1235,740-100,170,300); 
   
@@ -237,8 +269,9 @@ public class TelaPartida extends JFrame {
   
                          @Override 
                          public void mouseEntered(MouseEvent arg0) { 
-                                 // TODO Auto-generated method stub 
-  
+                                 
+
+                        	 
                          } 
                           
                          public void mouseExit(MouseEvent args0){ 
@@ -261,6 +294,7 @@ public class TelaPartida extends JFrame {
   
   
                          }
+
 						@Override
 						public void mouseExited(MouseEvent arg0) {
 							// TODO Auto-generated method stub
@@ -268,14 +302,16 @@ public class TelaPartida extends JFrame {
 						} 
   
   
-              }); */
+              }); 
   
               imPrintf = new ImageIcon(getClass().getResource("printf.png")); 
-              imaPrintf = new JLabel(imPrintf);
-              imaPrintf.addMouseListener(carta.po);
-              /* imaPrintf.addMouseListener(new MouseListener(){ 
+              imaPrintf = new JLabel(imPrintf); 
+              imaPrintf.addMouseListener(new MouseListener(){ 
+            	  
+            	  int x = 1235; 
+                  int  y = 740; 
   
-                /*         public void mouseClicked(MouseEvent arg0) { 
+                         public void mouseClicked(MouseEvent arg0) { 
                                  cont++; 
                                  imaPrintf.setBounds(1235,740-100,170,300); 
   
@@ -305,13 +341,15 @@ public class TelaPartida extends JFrame {
                          public void mouseReleased(MouseEvent arg0) { 
                                  // TODO Auto-generated method stub 
                                  mouseP = false; 
-                                 imaPrintf.setBounds(875,420,170,300); 
+                                 imaPrintf.setBounds(875,540,170,300); 
   
   
-                         } 
+                         }
+                         
+                         
   
   
-              }); */
+              }); 
   
               Container cont = getContentPane(); 
               cont.setBackground(azul); 
@@ -324,154 +362,89 @@ public class TelaPartida extends JFrame {
               cont.add(imaScanf); 
               cont.add(imaPrintf); 
   
-              painel.setBounds(520,50,800,200); 
-              //perg.setBounds(20,50,900,100); 
-              imaIf.setBounds(695,740,170,300); 
-              imaInclude.setBounds(515,740,170,300); 
-              imaFor.setBounds(875,740,170,300); 
-              imaScanf.setBounds(1055,740,170,300); 
-              imaPrintf.setBounds(1235,740,170,300); 
+              painel.setBounds(200,50,1000,150); 
+              perg.setBounds(20,50,900,100); 
+              imaIf.setBounds(240,400,170,300); 
+              imaInclude.setBounds(410,400,170,300); 
+              imaFor.setBounds(590,400,170,300); 
+              imaScanf.setBounds(760,400,170,300); 
+              imaPrintf.setBounds(930,400,170,300); 
   
- new Mover().start(); 
-       setSize(dimensao); 
-       setLayout(null); 
-       setVisible(true); 
+      new Mover().start(); 
+      setSize(1366, 768);
+      setLayout(null); 
+      setVisible(true); 
   
   
  } 
-      
-      
-      private class Cartas{
-    	  
-    	  CartasMovem po = new CartasMovem();
-    	  
-    	  private class CartasMovem implements MouseListener {
-    	  
   
-	    	  public void mouseClicked(MouseEvent arg0){ 
-	    		  
-	    		  if(arg0.getSource() == imaPrintf) {
-	    			  
-	                  cont++; 
-	                  imaPrintf.setBounds(1235,740-100,170,300); 
-	                  if (cont ==1){ 
-	                	  
-	                     imaPrintf.setBounds(1235,740,170,300); 
-	                  }
-	    		  } 
-	    		  if(arg0.getSource() == imaScanf){
-	    			  
-	    			  cont++; 
-	                  imaScanf.setBounds(1055,740-100,170,300); 
-	                  if (cont ==2){ 
-	                    	  
-	                     imaScanf.setBounds(1055,740,170,300); 
-	                  } 
-	    		  }  if(arg0.getSource() == imaInclude){
-	    			  
-	    			  cont++; 
-	                  imaInclude.setBounds(515,740-100,170,300); 
-	
-	                      if (cont ==2){ 
-	                    	  
-	                         imaInclude.setBounds(515,740,170,300); 
-	    		          }
-	    		  } else if (arg0.getSource() == imaIf){
-	    			  
-	    			  cont++; 
-	                  imaIf.setBounds(695,740-100,170,300); 
-	
-	                      if (cont >=2){ 
-	                    	  
-	                          imaIf.setBounds(695,740,170,300); 
-	                      } 
-	    		  } if(arg0.getSource() == imaFor) {
-	    			  
-	    			  cont++; 
-	                  imaFor.setBounds(875,740-100,170,300); 
-	
-	                      if (cont ==2){ 
-	                    	  
-	                         imaFor.setBounds(875,740,170,300); 
-	                      } 	  
-	    		  }                         
-	      } 
-	       
-	      public void mouseEntered(MouseEvent arg0) { 
-	              // TODO Auto-generated method stub 
-	    	  
-	      } 
-	      public void mouseExited(MouseEvent arg0) { 
-	              // TODO Auto-generated method stub
-	      } 
-	
-	      public void mousePressed(MouseEvent arg0) { 
-	              
-	              
-	             
-	        		  mouseP = true;
-	        		  
-	        	  
-	             
-	      } 
-	
-	      public void mouseReleased(MouseEvent arg0) { 
-	              // TODO Auto-generated method stub 
-	             
-	    	  	if(arg0.getSource() == imaFor) {
-	    		  
-	    		  
-	    	  } else if(arg0.getSource() == imaPrintf) {
-	    		 	  imaPrintf.setBounds(1000,800,170,300);
-	    		  
-	    	  }  if(arg0.getSource() == imaInclude) {
-	    		  
-	    		  
-	    	  }  if(arg0.getSource() == imaIf) {
-	    		      		  
-	    	  } if(arg0.getSource() == imaScanf) {
-	    		  
-	    	  }
-	 	
-	    	  	
-	     }
-	      
-	      
-	    	  
-      }
-       
-    	 
-    	  
-  }
-  
-      public class Mover extends Thread{ 
+      public class Mover extends Thread implements MouseListener { 
               public void run(){ 
                       while(true){ 
                               try{ 
                                       sleep(10); 
                               }catch(Exception erro){} 
-                              if(mouseP){ 
-                                      Point ponto = getMousePosition(); 
-                                             if(cont >= 2){ 
-                                            	 
-                                            	
-                                                     int x = 1235; 
-                                                     int y = 740; 
-                                                     
-                                                     imaPrintf.setBounds(ponto.x-85,ponto.y-150,170,300); 
-                                             } 
-  
-                              } 
+                
                       } 
-              } 
-      }
-      
+      	
+				
+			}
 
-      
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				  if(mouseP){ 
+                      Point ponto = getMousePosition(); 
+                             if(cont >= 2){ 
+                            	 
+                            	
+                                     int x = 1235; 
+                                     int y = 740; 
+                                     
+                                     imaPrintf.setBounds(ponto.x-85,ponto.y-150,170,300); 
+                             } 
+                             
+				  }             
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+				
+					  
+				
+			}
+
+		
      
+      
+      
+      
      public static void main (String[]args){ 
         TelaPartida ex = new TelaPartida(); 
         ex.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         } 
          
- } 
+ }
